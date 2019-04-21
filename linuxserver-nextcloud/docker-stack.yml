@@ -1,0 +1,32 @@
+version: "3.2"
+services:
+ nextcloud:
+    image: linuxserver/nextcloud
+    environment:
+      - PUID=999
+      - PGID=999
+      - TZ=Europe/London
+    volumes:
+      - /swarm/volumes/linuxserver-nextcloud/config:/config
+      - data:/data
+    ports:
+      - 4000:443
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - marianet
+
+networks:
+  marianet:
+    external: true
+
+volumes:
+  data:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=192.168.0.2
+      device: ":/export/NFS/linuxserver-nextcloud/data"

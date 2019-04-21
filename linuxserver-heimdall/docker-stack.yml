@@ -1,0 +1,21 @@
+version: "3"
+services:
+  heimdall:
+    image: linuxserver/heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /swarm/volumes/linuxserver-heimdall/config:/config
+    resources:
+        limits:
+          memory: 128M
+    ports:
+      - 80:80
+      - 443:443
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure

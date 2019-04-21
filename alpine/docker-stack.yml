@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  hello:
+    image: alpine
+    volumes:
+      - data:/mnt
+    command: ls /mnt
+
+volumes:
+  data:
+    driver: nfs
+    driver_opts:
+      share: 192.168.0.2:/export/NFS
+

@@ -1,0 +1,28 @@
+version: "3.2"
+services:
+  mariadb:
+    image: linuxserver/mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    env_files:
+      - .env
+    volumes:
+      - /swarm/volumes/linuxserver-mariadb/config:/config
+    ports:
+      - 3306:3306
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.hostname == ubuntudellm1
+    networks:
+      - marianet
+
+networks:
+  marianet:
+   external: true

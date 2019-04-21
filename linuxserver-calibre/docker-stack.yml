@@ -1,0 +1,27 @@
+version: "3.2"
+services:
+  calibre:
+    image: linuxserver/calibre-web
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - UMASK_SET=022
+    volumes:
+      - /swarm/volumes/linuxserver-calibre/config:/config
+      - books:/books
+    ports:
+      - 8083:8083
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+volumes:
+  books:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=192.168.0.2
+      device: ":/export/Windows/Books"
+

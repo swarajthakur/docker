@@ -1,0 +1,21 @@
+filebeat.autodiscover:
+  providers:
+    - type: docker
+      hints.enabled: true
+
+filebeat.modules:
+#Filebeat system module consumes logs from host OS through a mounted volume
+- module: system
+  syslog:
+    var.paths: ["/var/log/host/system.log*"]
+
+#Apache2 Module to consume to access and error logs from mounted volume
+- module: apache2
+  access:
+    var.paths: ["/var/log/apache2/access.log*"]
+  error:
+    var.paths: ["/var/log/apache2/error.log*"]
+
+output.logstash:
+#All data to indexed to Elasticsearch
+   hosts: ["logstash:5044"]

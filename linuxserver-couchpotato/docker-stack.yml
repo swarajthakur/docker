@@ -1,0 +1,33 @@
+version: "3.2"
+services:
+  couchpotato:
+    image: linuxserver/couchpotato
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - UMASK_SET=022
+    volumes:
+      - /swarm/volumes/linuxserver-couchpotato/config:/config
+      - downloads:/downloads
+      - movies:/movies
+    ports:
+      - 5050:5050
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+volumes:
+  downloads:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=192.168.0.2
+      device: ":/export/Torrents/watch"
+  movies:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=192.168.0.2
+      device: ":/export/Torrents/Movies"

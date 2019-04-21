@@ -1,0 +1,10 @@
+ route:
+     receiver: 'slack'
+
+ receivers:
+     - name: 'slack'
+       slack_configs:
+           - send_resolved: true
+             username: 'swarajthakur@outlook.com'
+             channel: '#alerts'
+             api_url: 'https://hooks.slack.com/services/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'

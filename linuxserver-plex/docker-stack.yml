@@ -1,0 +1,50 @@
+version: "3.2"
+services:
+  plex:
+    image: plexinc/pms-docker
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+    ports:
+      - 32400:32400/tcp
+      - 3005:3005/tcp
+      - 8324:8324/tcp
+      - 32469:32469/tcp
+      - 1900:1900/udp
+      - 32410:32410/udp
+      - 32412:32412/udp
+      - 32413:32413/udp
+      - 32414:32414/udp
+    resources:
+        limits:
+          memory: 512M
+    environment:
+      - TZ=Europe/London
+      - PLEX_CLAIM=claim-MzGyphN6eGMnhiirXpBb
+      - ADVERTISE_IP=http://proxy.local:32400/
+    hostname: plex
+    volumes:
+      - /swarm/volumes/linuxserver-plex/config:/config
+      - tvseries:/data/tvshows
+      - movies:/data/movies
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+volumes:
+  tvseries:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=192.168.0.2
+      device: ":/export/Torrents/TV"
+
+  movies:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=192.168.0.2
+      device: ":/export/Torrents/Movies"

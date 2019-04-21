@@ -1,0 +1,24 @@
+version: "3.2"
+services:
+  bookstack:
+    image: linuxserver/bookstack
+    environment:
+      - PUID=1000
+      - PGID=1000
+    env_file:
+      - .env
+    volumes:
+      - /swarm/volumes/linuxserver-bookstack/config:/config
+    ports:
+      - 6875:80
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - marianet
+
+networks:
+  marianet:
+    external: true

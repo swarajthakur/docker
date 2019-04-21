@@ -1,0 +1,84 @@
+version: '3.5'
+
+services:
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.7.1
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - /swarm/volumes/elkstack/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+#      - /swarm/volumes/elkstack/elasticsearch/data:/usr/share/elasticsearch/data
+      - data:/usr/share/elasticsearch/data
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - elk
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash-oss:6.7.1
+    ports:
+      - "5044:5044"
+      - "5000:5000"
+      - "9600:9600"
+    volumes:
+      - /swarm/volumes/elkstack/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - /swarm/volumes/elkstack/logstash/pipeline:/usr/share/logstash/pipeline:ro
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - elk
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana-oss:6.7.1
+    ports:
+      - "5601:5601"
+    volumes:
+      - /swarm/volumes/elkstack/kibana/config/:/usr/share/kibana/config:ro
+    networks:
+      - elk
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+  metricbeat:
+    image: docker.elastic.co/beats/metricbeat:6.7.1
+    user: root
+    command: bash -c "metricbeat -strict.perms=false"
+    volumes:
+      - /swarm/volumes/elkstack/beats/metricbeat/metricbeat.docker.yml:/usr/share/metricbeat/metricbeat.yml:ro
+      - /swarm/volumes/elkstack/beats/metricbeat/modules.d:/usr/share/metricbeat/modules.d
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+      - /proc:/hostfs/proc:ro
+    networks:
+      - elk
+    deploy:
+      mode: global
+      restart_policy:
+        condition: on-failure      
+
+networks:
+  elk:
+    external: true
+
+volumes:
+  data:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=192.168.0.2
+      device: ":/export/NFS/elkstack/elasticsearch/data"

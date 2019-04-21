@@ -1,0 +1,161 @@
+mysqld, Version: 5.7.12-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.12-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.12-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.12-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.12-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.12-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.12-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.12-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.12-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.12-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.12-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+# Time: 2018-12-27T18:44:53.946914Z
+# User@Host: root[root] @ localhost []  Id:     3
+# Query_time: 1.419590  Lock_time: 0.001229 Rows_sent: 0  Rows_examined: 0
+use mysql;
+SET timestamp=1545936293;
+INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
+ (@time_zone_id, 352216809, 2)
+,(@time_zone_id, 372785410, 1)
+,(@time_zone_id, 384273010, 2)
+,(@time_zone_id, 404839811, 1)
+,(@time_zone_id, 415722611, 2)
+,(@time_zone_id, 436289412, 1)
+,(@time_zone_id, 447172212, 2)
+,(@time_zone_id, 467739012, 1)
+,(@time_zone_id, 478621812, 2)
+,(@time_zone_id, 499188613, 3)
+,(@time_zone_id, 511282813, 2)
+,(@time_zone_id, 530033413, 3)
+,(@time_zone_id, 542732413, 2)
+,(@time_zone_id, 562087813, 3)
+,(@time_zone_id, 574786814, 2)
+,(@time_zone_id, 594142214, 3)
+,(@time_zone_id, 606236414, 2)
+,(@time_zone_id, 625591814, 3)
+,(@time_zone_id, 636476415, 2)
+,(@time_zone_id, 657041415, 3)
+,(@time_zone_id, 667926016, 2)
+,(@time_zone_id, 688491016, 3)
+,(@time_zone_id, 699375616, 2)
+,(@time_zone_id, 719940617, 3)
+,(@time_zone_id, 731430017, 2)
+,(@time_zone_id, 751995018, 3)
+,(@time_zone_id, 762879618, 2)
+,(@time_zone_id, 783444619, 3)
+,(@time_zone_id, 794329219, 2)
+,(@time_zone_id, 814894219, 3)
+,(@time_zone_id, 828198020, 2)
+,(@time_zone_id, 846343820, 3)
+,(@time_zone_id, 859647620, 2)
+,(@time_zone_id, 877793421, 3)
+,(@time_zone_id, 891097221, 2)
+,(@time_zone_id, 909243021, 3)
+,(@time_zone_id, 922546822, 2)
+,(@time_zone_id, 941297422, 3)
+,(@time_zone_id, 953996422, 2)
+,(@time_zone_id, 967303822, 3)
+,(@time_zone_id, 985446022, 2)
+,(@time_zone_id, 1004196622, 3)
+,(@time_zone_id, 1017500422, 2)
+,(@time_zone_id, 1035646222, 3)
+,(@time_zone_id, 1048950022, 2)
+,(@time_zone_id, 1067095822, 3)
+,(@time_zone_id, 1080399622, 2)
+,(@time_zone_id, 1099150222, 3)
+,(@time_zone_id, 1111849222, 2)
+,(@time_zone_id, 1130599822, 3)
+,(@time_zone_id, 1143903623, 2)
+,(@time_zone_id, 1162049423, 3)
+,(@time_zone_id, 1174748423, 2)
+,(@time_zone_id, 1193499023, 3)
+,(@time_zone_id, 1207407623, 2)
+,(@time_zone_id, 1223134223, 3)
+,(@time_zone_id, 1238857224, 2)
+,(@time_zone_id, 1254583824, 3)
+,(@time_zone_id, 1270306824, 2)
+,(@time_zone_id, 1286033424, 3)
+,(@time_zone_id, 1301756424, 2)
+,(@time_zone_id, 1317483024, 3)
+,(@time_zone_id, 1333206024, 2)
+,(@time_zone_id, 1349537425, 3)
+,(@time_zone_id, 1365260425, 2)
+,(@time_zone_id, 1380987025, 3)
+,(@time_zone_id, 1396710025, 2)
+,(@time_zone_id, 1412436625, 3)
+,(@time_zone_id, 1428159625, 2)
+,(@time_zone_id, 1443886226, 3)
+,(@time_zone_id, 1459609226, 2)
+,(@time_zone_id, 1475335826, 3)
+,(@time_zone_id, 1491058826, 2)
+,(@time_zone_id, 1506785426, 3)
+,(@time_zone_id, 1522508426, 2)
+,(@time_zone_id, 1538839826, 3)
+,(@time_zone_id, 1554562826, 2)
+,(@time_zone_id, 1570289426, 3)
+,(@time_zone_id, 1586012426, 2)
+,(@time_zone_id, 1601739026, 3)
+,(@time_zone_id, 1617462026, 2)
+,(@time_zone_id, 1633188626, 3)
+,(@time_zone_id, 1648911626, 2)
+,(@time_zone_id, 1664638226, 3)
+,(@time_zone_id, 1680361226, 2)
+,(@time_zone_id, 1696087826, 3)
+,(@time_zone_id, 1712415626, 2)
+,(@time_zone_id, 1728142226, 3)
+,(@time_zone_id, 1743865226, 2)
+,(@time_zone_id, 1759591826, 3)
+,(@time_zone_id, 1775314826, 2)
+,(@time_zone_id, 1791041426, 3)
+,(@time_zone_id, 1806764426, 2)
+,(@time_zone_id, 1822491026, 3)
+,(@time_zone_id, 1838214026, 2)
+,(@time_zone_id, 1853940626, 3)
+,(@time_zone_id, 1869663626, 2)
+,(@time_zone_id, 1885995026, 3)
+,(@time_zone_id, 1901718026, 2)
+,(@time_zone_id, 1917444626, 3)
+,(@time_zone_id, 1933167626, 2)
+,(@time_zone_id, 1948894226, 3)
+,(@time_zone_id, 1964617226, 2)
+,(@time_zone_id, 1980343826, 3)
+,(@time_zone_id, 1996066826, 2)
+,(@time_zone_id, 2011793426, 3)
+,(@time_zone_id, 2027516426, 2)
+,(@time_zone_id, 2043243026, 3)
+,(@time_zone_id, 2058966026, 2)
+,(@time_zone_id, 2075297426, 3)
+,(@time_zone_id, 2091020426, 2)
+,(@time_zone_id, 2106747026, 3)
+,(@time_zone_id, 2122470026, 2)
+,(@time_zone_id, 2138196626, 3);
+mysqld, Version: 5.7.12-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+# Time: 2018-12-27T18:47:28.592842Z
+# User@Host: root[root] @  [172.18.0.9]  Id:     6
+# Query_time: 3.132723  Lock_time: 0.355272 Rows_sent: 353  Rows_examined: 353
+SET timestamp=1545936448;
+SHOW /*!50002 GLOBAL */ STATUS;
