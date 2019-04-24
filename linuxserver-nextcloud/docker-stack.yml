@@ -3,8 +3,8 @@ services:
  nextcloud:
     image: linuxserver/nextcloud
     environment:
-      - PUID=999
-      - PGID=999
+      - PUID=1000
+      - PGID=1000
       - TZ=Europe/London
     volumes:
       - /swarm/volumes/linuxserver-nextcloud/config:/config
